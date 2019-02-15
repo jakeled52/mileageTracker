@@ -1,0 +1,32 @@
+ <div id='outline'>
+ <h1>Miles Details</h1>
+    <table>
+      <tr>
+        <td>Date</td>
+        <td>{{miles.date | date : "MM/dd/y"}}</td>
+      </tr>
+      <tr>
+        <td>Distance</td>
+        <td>{{miles.distance}} miles</td>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>{{miles.type}}</td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>{{miles.category}}</td>
+      </tr>
+      <tr>
+        <td>Notes</td>
+        <td>{{miles.notes}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <button [routerLink]="['/miles']">Back</button>
+            <button (click)="onDelete()" class="delete" [routerLink]="['/miles']" id='delete'>Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>

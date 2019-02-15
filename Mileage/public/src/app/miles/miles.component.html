@@ -1,0 +1,44 @@
+<div id="container">
+  <h2>Miles: Welcome {{details?.user[0].username}}</h2>  
+  <br>
+<button class='marginR' [routerLink]="['/miles/new']">Add Trip</button>
+  <button class='marginR' [routerLink]="['/miles/stats']">Estimate Driving Cost</button>
+   <form class='searchByCat' (ngSubmit)="searchByCat()">
+    <input type='string' name='cat' placeholder='search by category' [(ngModel)]="cat">
+    <button class='marginR' type='submit'>Search</button>
+  </form>
+  <form class='searchByCat' (ngSubmit)="reset()">
+    <button class="marginR" type='submit'>Reset Miles</button>
+  </form>
+  <button class='marginR' (click)="logout()">Logout</button>
+  <div>
+    <p>  Total Miles: {{totalMiles}} - Business Miles: {{bMiles}} - Medical Miles: {{mdMiles}} - Moving Miles: {{mvMiles}} - Personal Miles: {{pMiles}}</p>
+    <p id='darkGreen'> Total Deduction: ${{deduction}} - Business Deduction: ${{bD}} - Medical Deduction: ${{mdD}} - Moving Deduction: ${{mvD}}</p>
+    <p *ngIf="stats.length > 0">Estimated ${{price}} spent on gasoline.</p>
+  </div>
+  <table>
+    <tr>
+     
+      <th>Date</th>
+      <th>Distance</th>
+      <th>Type</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  
+  
+    <tr *ngFor="let mile of miles">
+      
+      <td>{{mile.date | date : "MM-dd-y" : '+500'}}</td>
+      <td>{{mile.distance}} miles</td>
+      <td>{{mile.type}}</td>
+      <td>{{mile.category}}</td>
+      <td>
+        <button id="yellow" [routerLink]="['/miles/edit', mile._id, details?.user[0]._id]">Edit</button>
+        <button id="purple" [routerLink]="['/miles', mile._id, details?.user[0]._id]">Details</button>
+        <button (click)="onDelete(mile._id, Uid)" class="delete" [routerLink]="['/miles']" id='delete'>Delete</button>
+      </td>
+    </tr>  
+    
+  </table>
+</div>

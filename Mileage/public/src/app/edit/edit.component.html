@@ -1,0 +1,39 @@
+<div id='container'>
+  <h1>Edit Exsiting Trip</h1>
+  <p *ngFor="let error of errors">{{error.message}}</p>
+  <form (ngSubmit)="onEdit()">
+    <div>
+      <label for="date">Date</label>
+      <input type="date" name="miles.date" required #date='ngModel' [(ngModel)]="miles.date">
+    </div>
+ 
+    <div>
+      <label for="distance">Distance</label><br>
+      <label for='distance1'>Starting Mileage</label>
+   <input type="number" name="miles.distance1" required min=1 #distance='ngModel' [(ngModel)]="miles.distance1">
+      <label for='distance2'>Ending Mileage</label>
+   <input type="number" name="miles.distance2" required min=1 #distance='ngModel' [(ngModel)]="miles.distance2">   
+    </div>
+    <div>
+      <label for='type'>Type</label>
+    <select id="type" type="string" name="miles.type" #type='ngModel' [(ngModel)]="miles.type">
+        <option>Business</option>
+        <option>Medical</option>
+        <option>Moving</option>
+        <option>Personal</option>
+      </select>
+    </div>
+    <div>
+    <div>
+      <label for='cat'>Category</label>
+      <input type='string' name='miles.category' #type='ngModel' [(ngModel)]='miles.category'>
+    </div>
+    <div>
+      <label for='notes'>Notes</label>
+      <input type='string' name='miles.notes' #type='ngModel' [(ngModel)]='miles.notes'>
+    </div>
+    <button type="submit">Update</button>
+    <button [routerLink]="['/miles']">Cancel</button>
+    </div>
+  </form>
+</div>

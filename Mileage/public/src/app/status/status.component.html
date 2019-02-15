@@ -1,0 +1,17 @@
+<div id="outline">
+    <h1>Estimate Driving Cost</h1>
+    <p *ngFor="let error of errors">{{error.message}}</p>
+    <form (submit)="onCreate()">
+      <div>
+      <label for="mpg">Miles Per Gallon</label>
+      <input type="number" name="stats.mpg" #mpg='ngModel' [(ngModel)]="stats.mpg">
+      </div>
+      <div>
+      <label for="type">Price Per Gallon</label>
+      <input type="number" name="stats.ppg" #ppg='ngModel' [(ngModel)]="stats.ppg">
+     </div>
+
+      <button type="submit">Create</button>
+      <button [routerLink]="['/miles']" id="cancel">Cancel</button>
+    </form>
+  </div>

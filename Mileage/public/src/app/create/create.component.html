@@ -1,0 +1,35 @@
+<div id="outline">
+  <h1>Add New Trip {{details?.username}}</h1>
+  <p *ngFor="let error of errors">{{error.message}}</p>
+  <p *ngIf="!catIsGood">Category already exists under a diffent type.</p>
+  <form (ngSubmit)="onCreate()">
+    <div>
+    <label for="date">Date</label>
+    <input type="date" name="miles.date" #date='ngModel' [(ngModel)]="miles.date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+    </div>
+    <label for="type">Type</label>
+    <select id="type" type="string" name="miles.type" #type='ngModel' [(ngModel)]="miles.type">
+      <option>Business</option>
+      <option>Medical</option>
+      <option>Moving</option>
+      <option>Personal</option>
+    </select>
+    <div>
+    <label for="distance">Distance</label><br>
+    <label for='distance1'>Starting Mileage</label>
+    <input type="number" name="miles.distance1" required min=0 #distance1='ngModel' [(ngModel)]="miles.distance1">
+    <label for='distance2'>Ending Mileage</label>
+    <input type="number" name="miles.distance2" required min=1 #distance2='ngModel' [(ngModel)]='miles.distance2'>
+    </div>
+    <div>
+      <label for='category'>Category (optional)</label>
+      <input type='string' name='miles.category' #type='ngModel' [(ngModel)]="miles.category">
+    </div>
+    <div>
+    <label for="notes">Notes (optional)</label>
+    <input type='string' name='miles.notes' #type='ngModel' [(ngModel)]="miles.notes">
+    </div>
+    <button type="submit" >Create</button>
+    <button [routerLink]="['/miles']" id="cancel">Cancel</button>
+  </form>
+</div>
