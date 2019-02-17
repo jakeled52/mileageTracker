@@ -41,8 +41,8 @@ export class CreateComponent implements OnInit {
         if(this.cat){
           this.catIsGood = false;
         }
-        this.miles.distance1 = this.miles.user[0].milesArray[this.miles.user[0].milesArray.length-1].distance2;
-        this.miles.distance2 = this.miles.user[0].milesArray[this.miles.user[0].milesArray.length-1].distance2+1;
+        this.miles.distance1 = this.miles.user[0].milesArray[0].distance2;
+        this.miles.distance2 = this.miles.user[0].milesArray[0].distance2+1;
       },
       err => {
         console.log("error in create")
