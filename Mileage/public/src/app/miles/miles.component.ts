@@ -100,6 +100,7 @@ export class MilesComponent implements OnInit {
             console.log(this.details, " this.details ")
             this.getMiles();
             this.getStats();
+            this.sortByDate();
           },
           err => {
             console.log

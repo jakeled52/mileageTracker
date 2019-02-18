@@ -8,8 +8,6 @@ const express = require("express")
 const users = express.Router()
 const cors = require("cors")
 
-const bcrypt = require("bcrypt")
-
 const User = require("../models/users")
 users.use(cors())
 
